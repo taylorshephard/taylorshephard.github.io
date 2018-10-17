@@ -1,0 +1,268 @@
+//eloquent javascript problems
+
+// chapter 2
+
+
+// looping a triangle
+
+for (var line = '#'; 8 > line.length; line += '#')
+  console.log(line);
+
+
+
+
+// fizzbuzz
+
+    
+for(var i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+        console.log('FizzBuzz');
+    }
+    else if (i % 3 === 0) {
+        console.log('Fizz');
+    }else if (i % 5 === 0) {
+        console.log('Buzz');
+    }  else {
+        console.log(i);
+    }
+}
+
+
+
+//chessboard
+
+var str = "";
+
+for (var i = 0; i < 8; i++) {
+  for (var j = 0; j < 8; j++) {
+    if ((i + j) % 2 === 0)
+      str += " ";
+    else
+      str += "#";
+  }
+  str += "\n";
+}
+
+console.log(str);
+
+
+
+
+//chapter 3
+
+//Minimum
+function min(a, b){
+  if (a < b){
+    return a
+  }else return b
+}
+console.log(min(3, 13));
+
+
+
+//Recursion
+function isEven(number){
+  if (number === 0){
+    return true
+  }else if (number === 1){
+    return false
+  }else if (number < 0){
+    return isEven(-number)
+  }else return isEven(number - 2)
+}
+console.log(isEven(90));
+
+
+//Bean Counting
+// function countBs(string){
+//   var arr = [];
+//   string =string.split('');
+//   for (var i = 0; i < string.length; i++){
+//     if (string[i] === "B"){
+//       arr.push(string[i])
+//     }
+//   }
+//   return arr.length;
+// }
+
+function countBs(string){
+ return countChar(string, "B")
+  
+};
+console.log(countBs("Bob's Burgers"));
+
+
+
+function countChar(string, character){
+ var arr = [];
+  for (var i = 0; i < string.length; i++){
+    if (string[i] === character){
+      arr.push(string[i]);
+    }
+  }
+  return arr.length;
+};
+
+console.log(countChar('Curious Case', 'C'));
+
+
+
+//Chapter 4
+
+
+//The sum of a range
+
+function range(start, end){
+  var arr = [];
+  for (var i = start; i <= end; i++){
+    arr.push(i);
+  }
+  return arr;
+}
+console.log(range(1, 10));
+
+function sum(array){
+  var total = 0;
+for(var n = 0; n < array.length; n++){
+  total += array[n];
+}
+  return total;
+  
+  
+};
+console.log(sum(range(1, 10)));
+
+
+
+//Reverse An Array
+
+function reverseArray(array){
+ var arr = [];
+  for (var i = array.length - 1; i >= 0; i--){
+    arr.push(array[i]);
+  }
+  return arr;
+};
+
+console.log(reverseArray([1, 2, 3]));
+
+
+
+function reverseArrayInPlace(array){
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    let old = array[i];
+    array[i] = array[array.length - 1 - i];
+    array[array.length - 1 - i] = old;
+  }
+  return array;
+}
+
+console.log(reverseArrayInPlace([1, 2, 3]));
+
+
+
+
+//A List
+
+
+function arrayToList(array){
+  var list;
+  for (var i = 0; i < array.length; i++){
+    list = {value : array[i], rest: list};
+  }
+  return list;
+}
+console.log(arrayToList([10, 20]));
+
+
+function listToArray(list){
+  
+}
+
+
+
+//Deep Comparison
+
+function deepEqual(a, b){
+  if (a === b){
+    return true;
+  }
+  return false;
+}
+var obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+
+
+
+//Chapter 5
+
+
+//Flattening
+
+function flatten(array){
+  var flat = array.reduce(function(previousResult, value, index){
+    return previousResult.concat(value);
+  }, []);
+  return flat;
+};
+var arrays = [[1, 2, 3], [4, 5], [6]];
+console.log(flatten(arrays));
+
+// //every then some
+
+// function every(array, func){
+//   for (var i = 0; i  < array.length; i++){
+//     if (!func(array[i])){
+//       return false;
+//     }
+//     return true;
+//   }
+// }
+
+
+  
+//   function some(array, func){
+//     for (var i = 0; i < array.length; i++){
+//       if (func(array[i])){
+//         return true;
+//       }
+//       return false;
+//     }
+//   }
+
+
+
+//everything
+
+function every(array, func){
+  var check = test || identity;
+    for (var i = 0; i < array.length; i++) { 
+        if (! check(array[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function every(array, test){
+  return !array.some(function(element){
+    return !test(element);
+  })
+}
+
+
+
+
+//dominant writing direction
+
+function dominantDirection(text){
+  function dominantDirection(text) {
+  // Your code here.
+  let counted = countBy(text, char => {
+    let script = characterScript(char.codePointAt(0));
+    return script ? script.direction : "none";
+  }).filter(({name}) => name != "none");
+  
+  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
+}
+}

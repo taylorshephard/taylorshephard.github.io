@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/notes/notes.js"></script>
+    <title>A Well of HTML</title>
+    <style type="text/css">
+        body {
+            background-color: rgb(227, 255, 182);
+        }
+        
+        div{
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        
+        .form {
+                       
+                        margin: 20px;
+                        width: 400px;
+                        
+                        padding: 1em;
+                        border: 1px solid black;
+                        border-radius: 1em;
+                        background-color: rgb(76, 226, 76);
+                    }
+            
+                    .form div+div {
+                        margin-top: 1em;
+                    }
+            
+                    .form label {
+                        
+                        display: inline-block;
+                        width: 90px;
+                    }
+            
+                    .form input,
+                    .form textarea {
+                        font: 1em sans-serif;
+                        width: 300px;
+                        -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+                        border: 1px solid #999;
+                    }
+            
+                    .form input:focus,
+                    .form textarea:focus {
+                        border-color: #000;
+                    }
+            
+                    .form textarea {
+                        vertical-align: top;
+                        height: 5em;
+                        resize: vertical;
+                    }
+         table {
+                     margin: 20px;
+                     background-color: rgb(76, 226, 76)
+                }
+
+                table,
+                th,
+                td {
+                padding: 4px;
+                border: 1px solid black;
+                }
+        .flex-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin: 20px;
+                    padding: 4px;
+                }
+        .bootstrap-grid {
+                    margin: 20px;
+                }
+
+                .row-img {
+                     margin: 4px;
+                }
+
+        a img {
+            width: 20em;
+        }
+        
+         
+    </style>
+    </head>
+    
+    <body>
+        <div id="container" class="container">
+            <!-- ALL YOUR MARKUP GOES BELOW HERE -->
+           
+            <h1>Fruit Salad</h1>
+            
+            <h2><small><strong>Fruit is really good and good for you!</strong></small></h2>
+            <p>Eating fruit is one of the best things you can do to stay healthy. </p>
+            
+            <a href="https://en.wikipedia.org/wiki/Fruit"><img src="img/cherries.jpg" /><br />click for fruit wiki</a><br /><br />
+            
+    
+    
+            <div id="about fruit">
+                <h3>
+                    <strong>Why fruit is so great!</strong>
+                </h3>
+                <h4>They're Healthy</h4>
+                <p> In
+                    <i>botany</i>, a <b>fruit</b> is the seed-bearing structure in flowering plants (also known as angiosperms) formed from the ovary
+                    after flowering.
+                </p>
+                
+                <h4>They taste great!</h4>
+                <p><em>Fruit</em> actually taste really good. There are so many different types of fruit, so it shouldn't be hard to find
+                    one that you really like.</p>
+                
+                
+            </div>
+    
+    
+            <div id="lists">
+                <h5><strong>Fruit that you might not know about</strong></h5>
+    
+                <ul>
+                    <li>Avocados</li>
+                    <li>Bell Peppers</li>
+                    <li>Cucumbers</li>
+                </ul><br />
+                
+                
+    
+                <h5><strong>"Berries" that aren't actually berries</strong></h5>
+                <ol>
+                    <li>Strawberries</li>
+                    <li>Rasberries</li>
+                    <li>Blackberries</li>
+                </ol>
+                
+                
+            </div>
+    
+    
+            <div id="definitions">
+                <h6><strong>Definitions</strong></h6>
+                <dl>
+                    <dt>Fruit</dt>
+                    <dd>The sweet and fleshy product of a tree or other plant that contains seed and can be eaten as food</dd>
+                    
+                    
+                    <dt>Berry</dt>
+                    <dd>a small roundish juicy fruit without a stone./any fruit that has its seeds enclosed in a fleshy pulp</dd>
+                </dl>
+                
+                
+            </div>
+    
+            
+    
+    
+    
+            <div id="table">
+                <h3>Fruit Colors</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fruit</th>
+                            <th>Color</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">The color of different fruit.</td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>Cherry</td>
+                            <td>Red</td>
+                        </tr>
+                        <tr>
+                            <td>Banana</td>
+                            <td>Yellow</td>
+                        </tr>
+                        <tr>
+                            <td>Rasberry</td>
+                            <td>Red</td>
+                        </tr>
+                        <tr>
+                            <td>Orange</td>
+                            <td>Orange</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+    
+            <h3>My Top 5 Favorite Fruit</h3>
+            <div class="flex-row">
+                <div>Pineapples</div>
+                <div>Pears</div>
+                <div>Grapes</div>
+                <div>Apples</div>
+                <div>Cherries</div>
+            </div>
+            
+    
+    
+            <div class="bootstrap-grid">
+                <h2><small>Types of Fruit</small></h2>
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="./img/black-currant.jpg" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">This is what a Black Current looks like. I don't think I've ever had one.</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="./img/cherries.jpg" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">These are cherries. This is one of my favorite fruit.</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="./img/apple-in-grass.jpg" class="row-img"></img>
+                    </div>
+                    <div class="col-md-10">This is an apple. They're deliscious!</div>
+                </div>
+            </div>
+    
+
+
+            <div id="form">
+                <h3>Sign Up For Annoying Emails About Fruit</h3>
+                <form class="form">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" />
+                    </div>
+                    <div>
+                        <label for="mail">E-mail:</label>
+                        <input type="email" id="mail" />
+                    </div>
+                    <div>
+                        <label for="favorite fruit">Favorite Fruit:</label>
+                        <input type="favorite fruit">
+                        </textarea>
+                    </div>
+                    <div>
+                        <label for="message">Message:</label>
+                        <textarea id="message"></textarea>
+                    </div>
+            
+                    <div class="button">
+                        <button type="submit">Send your message</button>
+                    </div>
+                </form>
+            </div>
+            
+            
+        </div>
+        <!-- ALL YOUR MARKUP GOES ABOVE HERE -->
+    </div>
+</body>
+
+</html>

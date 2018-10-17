@@ -1,0 +1,171 @@
+// #1
+
+function FirstReverse(str) { 
+var array = str.split("").reverse();
+  // code goes here  
+  return array.join(""); 
+         
+}
+   
+
+
+  // #2
+  
+function SimpleAdding(num) { 
+
+var result = 0;
+  // code goes here
+  for (var i = 1; i <= num; i++){
+     result = result + i;
+  }
+  
+  
+  return result; 
+         
+}
+
+
+// #3
+
+function LetterCapitalize(str) { 
+ strSplit = str.split(' ');
+return strSplit.map(function(word){
+        var result = word[0].toUpperCase() + word.slice(1);
+        return result;
+    }).join(' '); 
+    
+   
+// keep this function call here 
+LetterCapitalize(readline());
+
+
+
+// #4
+
+function FirstFactorial(num) { 
+
+  var result = 1;
+
+  for (var i = 1; i <= num; i++) {  
+   
+    result *= i;
+  }
+
+  return result;
+         
+}
+   
+// keep this function call here 
+FirstFactorial(readline());
+
+
+
+// #5
+
+function AlphabetSoup(str) { 
+var string = str.split('').sort();
+  // code goes here  
+  return string.join(''); 
+         
+}
+   
+// keep this function call here 
+AlphabetSoup(readline());
+
+
+
+//#6
+
+function TimeConvert(num) { 
+
+return Math.floor(num / 60) + ':' +  (num % 60);
+
+}
+   
+// keep this function call here 
+TimeConvert(readline());
+
+
+
+
+
+// #7
+
+function CheckNums(num1,num2) { 
+if (num2 > num1){
+    return true;
+}else if (num1 === num2){
+    return '-1';
+}
+  return false;
+         
+}
+   
+// keep this function call here 
+CheckNums(readline());
+
+
+
+
+// #8
+
+function SimpleSymbols(str) { 
+str = '=' + str + '=';
+
+  
+  for (var i = 0; i < str.length; i++) {
+    
+    if (str[i].match(/[a-z]/i) !== null) {
+
+      
+      if (str[i-1] !== '+' || str[i+1] !== '+') { 
+        return false;
+      }
+
+    }
+ 
+  }
+  // code goes here  
+  return str; 
+         
+}
+   
+// keep this function call here 
+SimpleSymbols(readline());
+
+
+
+// #9
+
+function LongestWord(sen) { 
+
+  var arr = sen.match(/[a-z]+/gi);
+
+  arr = arr.sort(function(a, b) {
+    return b.length - a.length;
+  });
+
+  
+  return arr[0];
+         
+}
+   
+// keep this function call here 
+LongestWord(readline());s
+
+
+
+//10
+function LetterCapitalize(str) { 
+
+     strSplit = str.split(' ');
+return strSplit.map(function(word){
+        var result = word[0].toUpperCase() + word.slice(1);
+        return result;
+    }).join(' '); 
+    
+         
+}
+   
+// keep this function call here 
+LetterCapitalize(readline());

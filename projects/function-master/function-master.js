@@ -160,34 +160,51 @@ function nonFriends(name, array) {
 //if name is same as array[i].name
       // access its friends list
         // compare friends list against allFriendsNames
-        
+  
     var allFriendsNames = [];
     var notFriends = [];
-    for (var i = 0; i < array.length; i++){
-        allFriendsNames.push(array[i]);
+    var current = null;
+    for(var i=0; i<array.length; i++){
+        if(name === array[i].name){
+            current = array[i];
+        }else{
+            allFriendsNames.push(array[i].name);
         }
-    for (var j = 0; j < allFriendsNames.length; i++){
-        if (name === allFriendsNames[j]){
-            if (name.friends === array[i].name.friends){
-                notFriends.push(!array[i].name.friends);
-                return notFriends;
-            }
+    
+    }
+
+    for(var j=0; j<allFriendsNames.length; j++){
+        if(current.friends.indexOf(allFriendsNames[j]) == -1){
+            notFriends.push(allFriendsNames[j]);
         }
     }
-}
 
+    return notFriends;
+
+}
+ 
+      
+      
+      
+      
+      
+     
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-    if (object === key){
-        for (var key in object){
-            if (object[key]){
-                return object.key = value;
-            }
-        }
-    }return object.key = value;
+   
+    object[key] = value;
+    
+  for (var key in object){
+        if (key === undefined){
+            object[key] = value;
+            return object;
+        }    
+        
+    } 
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -195,9 +212,17 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-    for (var i = 0; i < array.length; i++){
-        
-    }
+  for (var i = 0; i < array.length; i++){
+       for (var key in object){
+        if (array[i] === key){
+              delete object[key];
+            }
+       
+       
+        } 
+       
+    } return object;
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -205,9 +230,21 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-   
+ var i, j;
+    for (i = array.length - 1; i >= 0; i--) {
+       var newArray = array[i];
+        var found = false;
+        for (j = i - 1; !found && j >= 0; j--) {
+            if (newArray === array[j]) {
+                if (i !== j) {
+                    array.splice(i, 1);
+                }
+                found = true;
+            }
+        }
+    }
+    return array;
 }
-
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
