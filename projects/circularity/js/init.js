@@ -51,32 +51,31 @@ var init = function (window) {
             // TODO 5 : YOUR CODE STARTS HERE //////////////////////
             
             // if the circle has gone out the right side of the screen then place it off-screen left
-            if ( circle.x > canvas.width ) {
-                circle.x = circle.radius;
-            } 
+           if (circle.x > canvas.width) {
+	        circle.x = 0;
+            }
             // TODO 5a) if the circle has gone out of the left side of the screen then place it off-screen right
             else if ( circle.x < circle.radius ) {
                 circle.x = canvas.width;
             } 
-
             // TODO 5b) if the circle has gone out of the top side of the screen then place it off-screen bottom
             if ( circle.y > canvas.height) {
-                circle.y = - canvas.height + circle.radius;
+                circle.y = circle.radius;
             }
             // TODO 5c) if the circle has gone out of the bottom side of the screen then place it off-screen top 
             else if ( circle.y < circle.radius ) {
-                circle.y = canvas.hieght + circle.radius;
+                circle.y = canvas.hieght;
             }
             // YOUR TODO 5 CODE ENDS HERE //////////////////////////
         };
     
         var update = function() {
             // TODO 4 : Update the circle's position //
-            // physikz.updatePosition(circles[0]);
-            // physikz.updatePosition(circles[1]);
-            // physikz.updatePosition(circles[2]);
-            // physikz.updatePosition(circles[3]);
-            // physikz.updatePosition(circles[4]);
+            physikz.updatePosition(circles[0]);
+            physikz.updatePosition(circles[1]);
+            physikz.updatePosition(circles[2]);
+            physikz.updatePosition(circles[3]);
+            physikz.updatePosition(circles[4]);
             
             // TODO 6 : Call checkCircleBounds on your circles.
         //   for (var i = 0; i < circles.length; i++) {
@@ -89,7 +88,7 @@ var init = function (window) {
                runner.checkCircleBounds(circle);
            }
 
-        }
+        };
         
         ////////////////////////////////////////////////////////////////////
         // NO CODE BELOW HERE                                             //

@@ -57,16 +57,18 @@ Open up `js/init.js`. This file will help set up the entire game. First we need 
 
 Most games display *status information* like the current score or number of lives remaining overlaid with the running game at either the top or bottom of the screen. We call this a "Heads-Up Display" and we've already written one for you in `js/view/hud.js`
 
-Find this file in your project and open it. You should see that it declares a function and assigns it to `window.opspark.makeHud`. Read the documentation for `makeHud` and follow it's instructions for adding the heads-up-display to the game. You will want to make a change to the code in `init.js` at `TODO 1`. Once that is done, you should see the heads-up display!
+Find this file in your project and open it. You should see that it declares a function and assigns it to `window.opspark.makeHud`. Read the documentation for `makeHud` and follow it's instructions for adding the heads-up-display to the game. The function `opspark.makeHud()` makes and returns a Heads-Up-Display `Object`.
 
-Hint: The code to add will look like this:
+Now, back in `init.js` at `TODO 1` add the following code:
     
     var hud = opspark.makeHud();
     view.addChild(hud);
 
-It creates a Heads Up Display (HUD) using the opspark.makeHud() method and adds it to view.
+After we store the returned Object as `hud` we then have to add this Object to the `view`, the object that controls which objects are viewable. Once that is done, you should see the heads-up display! 
 
 ![Heads-Up Display](http://i.imgur.com/VG1KvnA.png)
+
+## TODO 1 Part 2) Play with the hud in the window
 
 Now, add one more line of code to `init.js` where you created your heads-up display.
 
@@ -76,9 +78,9 @@ By assigning the `hud` variable to a property on the `window` object, we can pla
 
 ![hud variable in console](http://i.imgur.com/nxwu637.png)
 
-Open up the console in Chrome Developer Tools and type out each of these statements.
+Run your game from `index.html`, open up the console in Chrome Developer Tools, and type out each of these statements.
 
-Hint: To open the Chrome Developer Tools right click on the page and select 'inspect'
+Hint: To open the Chrome Developer Tools right click on the running application page and select 'inspect'
 
     hud.updateScore(10);
 
@@ -92,12 +94,11 @@ Hint: To open the Chrome Developer Tools right click on the page and select 'ins
 
 **What do they do?**
 
-# TODO 2 - Adding A Background 
+# TODO 2 Part 1 - Adding A Background 
 
-Nice! Now we have something on our screen - but the background is pretty boring. Open up the file `js/view/background.js`. Here we have made a function for you
-called makeBackground. To have this background appear in our game we need to go back to `js/init.js` and call this function!
+Nice! Now we have something on our screen - but the background is pretty boring. Open up the file `js/view/background.js`. Here we have made a function for you called makeBackground. To have this background appear in our game we need to go back to `js/init.js` and call this function!
 
-Modify `init.js` at `TODO 2` to call `makeBackground`. You will need to supply the appropriate arguments to the function:
+In `init.js` at `TODO 2` call `makeBackground()`. You will need to supply the appropriate arguments to the function:
 
 ```js
 var background = opspark.makeBackground(app,ground);
@@ -108,21 +109,25 @@ Once this is done correctly you should see Halle on a yellow background.
 
 ![Halle On Yellow Background](http://i.imgur.com/iqo5v3F.png)
 
-Now, open up `js/view/background.js` and find the variable backgroundFill on (or around) line 36.
+## TODO 2 Part 2 - Choose your own background color!
+Now, open up `js/view/background.js` and find where the variable `backgroundFill` is defined (around line 36).
 
-backgroundFill holds the rectangle object returned by the draw.rect() function (see Drawing With Create.js). Let's make some changes to the function call to get our background filled in just right:
-- Adjust the backgroundFill variable to a color you like.
-- Adjust second argument so that it only shows the background color above the the ground.
+`backgroundFill` holds the rectangle object returned by the `draw.rect()` function (see Drawing With Create.js below). The `draw.rect()` function takes the following arguments:
+
+    draw.rect(width, height, fillColor)
+
+Let's make some changes to the function call to get our background filled in just right:
+- Search on Google for "color picker" and choose a color that you want for your background.
+- Change the height of the background to `ground.y`
 
 As a last step, depending on the background you've built, your heads-up-display may be hard to see or just plain ugly. Modify the colors used by `js/view/hud.js` to match your background.
 
 Our first goal is to create a great background for our game. That will require learning to draw with create.js.
 
 # Drawing With Create.js
-Create.js is a library of functions that let you add drawings to your program. Each function returns an object
-with properties that define the object's appearance, location on the screen, and much more.
+Create.js is a **library** of functions stored in the `draw` Object that let you add drawings to your program. Each function returns a new Object with properties that define the object's appearance, location on the screen, and much more.
 
-So, in order to draw something you will create a *shape* that will hold that object using one of the following functions:
+So, in order to draw something you will create a *shape variable* that will hold that object:
 
 Image | Code
 ------|------
@@ -131,12 +136,12 @@ Image | Code
 ![circle](http://i.imgur.com/Zc9hJqU.png)    | `var shape = draw.circle(radius, color, strokeColor, strokeWidth);`
 ![image](http://i.imgur.com/BGZCnX8.png)     | `var shape = draw.bitmap('img/moon.png');`
 
-**Adding your own Images for a bitmap object**
+## Adding your own Images for a bitmap object
 The moon.png image is stored in the img folder. You can add your own custom images too! Once you have downloaded the image you would like to add (you can easily find png pictures by adding .png to your google image search) you can upload that file to your cloud9 workspace. 
 - Select the img folder
 - Go to File -> Upload Local Files -> Select / Drag & Drop downloaded image. 
 - Move that image into the img folder
-- use 'img/<name of your picture.png>' for the href
+- call `draw.bitmap()` using 'img/<name of your picture.png>' for the href
 
 In order to make your shape show on sreen you will need to add it to the `background` by calling
 
@@ -313,7 +318,7 @@ Open up `js/level01.js` file in your editor. You should see this:
 
 This file is where we are going to be writing our code for the next couple of steps.
 
-# TODO 7 - Creating Your First Obstacle
+# TODO 7 - Create a Hitzone for your First Obstacle
 
 An obstacle is the simplest element in our game. It moves at a fixed speed toward Halle as the game progresses. The obstacle must be avoided by either jumping or ducking and cannot be destroyed by being shot with Halle's gun. If the obstacle collides with Halle, Halle takes damage. If Halle takes enough damage, she dies and the game is over. 
 
@@ -340,15 +345,14 @@ Once this is done correctly, you should see a gray circle on the screen which mo
 
 ![Gray Circle](https://i.imgur.com/Yyk0bEK.png)
 
-The circle you see on the screen is the "hit zone" for the obstacle. Once that hit zone collides with Halle, you should see Halle's health indicator decrease by the amount you specified in `damageFromObstacle`. Halle has hitzones too. Open up `init.js` and find the `debugHalleHitZones` variable and change it to `true` You should now see the circles that make up Halle's hitzone.
-
-![Halle Hitzone](https://i.imgur.com/vdwaY4M.png)
+**The circle you see on the screen is the "hit zone" for the obstacle**. Once that hit zone collides with Halle, you should see Halle's health indicator decrease by the amount you specified in `damageFromObstacle`. Halle has hitzones too. Open up `init.js` and find the `debugHalleHitZones` variable and change it to `true` You should now see the circles that make up Halle's hitzone.
 
 Change the `y` property of `myObstacle` so that it eventually collides with Halle
 
-The hitzones in our game are used for collision detection and always present, but when we are playing our game we don't actually show them. Instead of circles we draw something that represents our obstacle. 
+![Halle Hitzone](https://i.imgur.com/vdwaY4M.png)
 
-Let's make our first obstacle be a saw blade. Add the following code:
+## TODO 7 Part 2 - Add an image to our hitzone
+The hitzones in our game are used for collision detection and always present, but when we are playing our game we don't actually show them. Instead of circles, we draw something that represents our obstacle. Let's make our first obstacle be a saw blade. Add the following code:
 
     var obstacleImage = draw.bitmap('img/sawblade.png');
     myObstacle.addChild(obstacleImage);
@@ -379,7 +383,7 @@ When we always want to execute a series of code in a particular order, it is bes
 Declare a function `createSawBlade` with two parameters `x` and `y`
 
 ```js
-var createSawBlade = function(x,y) {
+function createSawBlade(x,y) {
     // your code goes here
 }  
 ```
@@ -428,7 +432,7 @@ You are now ready to add new kinds of obstacles to your game. To do this, decide
 First, write a function that creates your obstacle
 
 ```js
-var createBox = function(x,y) {
+function createBox(x,y) {
     // ????
 };
 ```
@@ -596,7 +600,7 @@ Now use one of the behavior functions described above in the function assigned t
 You now should know enough to make your own enemy. To get started, take all of the code you wrote in the last step and move it into a new function called `createEnemy`
 
 ```js
-var createEnemy = function() {
+function createEnemy() {
     // all code from TODO 12
 }
 ```

@@ -32,15 +32,7 @@ var init = function (window) {
     ground = opspark.makeGround(app);
 
     // TODO 2 : add background
-    
-    var background = opspark.makeBackground(app, ground);
-    view.addChild(background);
-    var moon = draw.bitmap('img/moon.png');
-    moon.x = 300;
-    moon.y = 25;
-    moon.scaleX = 1.0;
-    moon.scaleY = 1.0;
-    background.addChild(moon);
+
     
     var help = draw.textfield('MOVES || w: jump | e: flying jump | s: duck | space: fire | q your mom!', 
         '20px Arial',
@@ -79,10 +71,9 @@ var init = function (window) {
     }
     
     // TODO 1 : add a heads-up display to game
-    
-    var hud = opspark.makeHud();
-    view.addChild(hud);
-    window.hud = hud;
+        var hud = opspark.makeHud();
+        view.addChild(hud);
+        window.hud = hud;
 
     // TODO 6 : create game manager
 
