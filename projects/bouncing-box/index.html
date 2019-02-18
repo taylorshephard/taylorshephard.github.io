@@ -21,6 +21,7 @@
 			font-size: 300%;
 			text-align: center;
 		}
+		
 	</style>
 
 </head>
@@ -36,6 +37,7 @@
 			// jQuery stuff setup for you
 			var box = $('.box');
 			var boardWidth = $('.board').width();
+			var body = $('body');
 	
 			// TODO 2 - Variable declarations 
 			var position;
@@ -54,7 +56,6 @@
 			var update = function() {
 				// TODO 3 / 6 / 7 / 8
 				position = position + (speed * direction);
-				console.log("new position " + position);
 				box.css('left', position);
 				if (position > boardWidth) {
 					direction = -1;
@@ -69,6 +70,7 @@
 				box.text(points);
 				position = 0;
 				speed = speed + 3;
+				body.css('background-color', 'pink');
 			};
 			
 			//this executes the update function code every 50 milliseconds
