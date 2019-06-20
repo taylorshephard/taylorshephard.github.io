@@ -18,8 +18,11 @@ var background = function (window) {
 
         // container which will be returned
         var background;
+        var backgroundFill;
+        var classmates;
+        var lockers = [];
+        // ANIMATION VARIABLES HERE:
         
-        // Add any variables that will be used by render AND update here:
         
         // add objects for display inb ackground
         // called at the start of game and whenever the page is resized
@@ -33,8 +36,14 @@ var background = function (window) {
 
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
+            var backgroundColor = draw.rect(canvasWidth,canvasHeight,'#996600');
+            background.addChild(backgroundColor);
+            
+            var backgroundFill = draw.bitmap('img/hallway.png');
             background.addChild(backgroundFill);
+            backgroundFill.x = ground;
+            backgroundFill.y = groundY-100;
+        
             
             // TODO: 3 - Add a moon and starfield
             
@@ -42,8 +51,21 @@ var background = function (window) {
             // TODO: 5 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
             
-            // TODO 4: Part 1 - Add a tree
+            var locker;
+            for (var i = 0; i < 5; ++i) {
+                
+                locker = draw.bitmap('img/locker.png');
+                locker.x = 425 * i;
+                locker.y = groundY - 220;
+                background.addChild(locker);
+                lockers.push(locker);
+            }
             
+            // TODO 4: Part 1 - Add a tree
+            classmates = draw.bitmap('img/teacher.png');
+            classmates.x = 900;
+            classmates.y = groundY - 220;
+            background.addChild(classmates)
         }
         
         // Perform background animation
@@ -55,9 +77,21 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            
+            classmates.x -= 1;
+            if (classmates.x < -200) {
+                classmates.x = canvasWidth;
+            }
+        
+         
             
             // TODO 5: Part 2 - Parallax
+            
+            for (var i = 0; i < lockers.length; i++) {
+                lockers[i].x -= 1;
+                if (lockers[i].x < -200) {
+                    lockers[i].x = canvasWidth;
+                }
+            }
             
 
         }
