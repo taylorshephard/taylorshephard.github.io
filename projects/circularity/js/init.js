@@ -71,11 +71,13 @@ var init = function (window) {
     
         var update = function() {
             // TODO 4 : Update the circle's position //
-            
+            //physikz.updatePosition(circles[0]);
+
+
             // TODO 6 : Call checkCircleBounds on your circles.
-        //   for (var i = 0; i < circles.length; i++) {
-        //       runner.checkCircleBounds(circles[i]);
-        //   }
+            //runner.checkCircleBounds(circles[0]);
+
+
             // TODO 8 : Iterate over the array
            for (var i = 0; i < circles.length; i++) {
                circle = circles[i];
