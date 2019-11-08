@@ -15,7 +15,7 @@ var level01 = function (window) {
             name: "Robot Romp",
             number: 1, 
             speed: -3,
-            gameItems: [
+            gameItems: [ 
                 {type: 'pencil',x:1000,y:groundY},
                 {type: 'pencil',x:1800,y:groundY - 115},
                 {type: 'pencil',x:2400,y:groundY},
