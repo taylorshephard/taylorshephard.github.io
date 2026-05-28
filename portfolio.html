@@ -1,27 +1,44 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Taylor's Marvelous Website</title>
-        <link rel="stylesheet" type="text/css" href="myStyle.css"></link>
-    </head>
-    <body>
-        <div id="all-contents">
-          <nav>
-            <header>Taylor's Marvelous Website</header>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <!--<li><a href="studies.html">Studies</a></li>-->
-            </ul>
-        </nav></br>
-        <main>
-            <div class="content">
-                <h1>Portfolio</h1>
-                <ul id="portfolio">
-                </ul>
-            </div>
-        </main>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script id="portfolioScript">$(document).ready(function() {$.getJSON('projects/projects.json').then(function(data) { data.projects.forEach(function(project){ $('#portfolio').append('<li><a href="projects/' + project.name + '/">' + project.title + ' : ' + project.description + '</a></li>'); }); }); });</script>
-    </body>
+
+<head>
+  <title>Taylor's Awesome Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="all-contents">
+    <nav>
+      <h1>Taylor's Portfolio</h1>
+      <ul id="nav-ul">
+        <li class="nav-li">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="nav-li">
+          <a href="portfolio.html">Portfolio</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="content">
+        <h1>Portfolio</h1>
+        <h3>FSD Project</h3>
+        <ul id="portfolio">
+          <li>
+            <a href="fsd-projects/platformer/">Platformer: A cannon-dodging adventure game for Halleb0t</a>
+          </li>
+          <li>
+            <a href="fsd-projects/bouncing-box/">Bouncing Box: A fun introduction to web game development</a>
+          </li>
+          <li>
+            <a href="fsd-projects/circularity/">Circularity: A poetic motion experiment with circles</a>
+          </li>
+        </ul>
+
+        <!-- ASD Projects will go here -->
+      </div>
+    </main>
+  </div>
+</body>
+
 </html>
